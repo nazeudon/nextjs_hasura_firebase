@@ -29,7 +29,7 @@ export const useUserChanged = () => {
             const tokenSnap = await user.getIdToken(true)
             const idTokenResultSnap = await user.getIdTokenResult()
             const hasuraClaimsSnap = idTokenResultSnap.claims[HASURA_TOKEN_KEY]
-            if (hasuraClaims) {
+            if (hasuraClaimsSnap) {
               cookie.set('token', tokenSnap, { path: '/' })
               router.push('/tasks')
             }

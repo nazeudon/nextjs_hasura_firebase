@@ -35,7 +35,7 @@ export const Auth: VFC = () => {
         />
         <label>Password:</label>
         <input
-          type="text"
+          type="password"
           className="px-3 py-1 my-3 border border-gray-300"
           placeholder="password ?"
           value={password}
