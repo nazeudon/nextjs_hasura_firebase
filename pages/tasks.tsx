@@ -5,6 +5,7 @@ import { ChevronDoubleLeftIcon, LogoutIcon } from '@heroicons/react/solid'
 import { useLogout } from '../hooks/useLogout'
 import { Layout } from '../components/Layout'
 import { NewsListMemo } from '../components/NewsList'
+import { NewsEditMemo } from '../components/NewsEdit'
 import firebase from '../firebaseConfig'
 
 const Tasks: VFC = () => {
@@ -23,7 +24,10 @@ const Tasks: VFC = () => {
         }}
       />
       <p className="mt-10 mb-5 text-xl font-bold text-blue-500">News Edit</p>
-      <NewsListMemo />
+      <div className="grid grid-cols-2 gap-40">
+        <NewsListMemo />
+        <NewsEditMemo />
+      </div>
 
       <Link href="/" passHref>
         <div className="flex items-center mt-20 cursor-pointer">
