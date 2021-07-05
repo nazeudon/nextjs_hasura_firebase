@@ -17,6 +17,10 @@ const NewsEdit: VFC = () => {
     }
   }
 
+  if (createNewsMutation.error || updateNewsMutation.error) {
+    return <div>Error!!</div>
+  }
+
   return (
     <div>
       <form onSubmit={submitHandler}>
