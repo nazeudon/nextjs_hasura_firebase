@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Hydrate } from 'react-query/hydration'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
 import { useUserChanged } from '../hooks/useUserChanged'
@@ -23,9 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>
   )
