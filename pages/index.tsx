@@ -7,8 +7,17 @@ import { fetchNews } from '../hooks/useQueryNews'
 import { News } from '../types/types'
 
 export default function Home() {
+  const queryClient = useQueryClient()
+  const data = queryClient.getQueryData<News[]>('news')
+
   return (
     <Layout title="Home">
+      <p className="mb-5 text-xl text-blue-500">News list by SSG</p>
+      {data?.map((news) => (
+        <p className="font-bold" key={news.id}>
+          {news.content}
+        </p>
+      ))}
       <Auth />
     </Layout>
   )
