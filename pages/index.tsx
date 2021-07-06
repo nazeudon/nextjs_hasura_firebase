@@ -32,5 +32,6 @@ export const getStaticProps: GetStaticProps = async () => {
       // pre-fetchした時にcacheからデータを取得し、jsonに吐き出す
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 3,
   }
 }
